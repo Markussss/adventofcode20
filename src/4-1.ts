@@ -1,17 +1,11 @@
 import rawPassports from "./4-input.js";
 
+console.log("4-1");
+
 const requiredFields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"];
 
 type Passport = {
   [index: string]: string;
-  byr: string;
-  iyr: string;
-  eyr: string;
-  hgt: string;
-  hcl: string;
-  ecl: string;
-  pid: string;
-  cid: string;
 };
 
 const passports = rawPassports
@@ -23,23 +17,11 @@ const passports = rawPassports
       .split("\n")
       .join(" ")
       .split(" ")
-      .reduce<Passport>(
-        (passport, keyAndValue) => {
-          const [key, value] = keyAndValue.split(":");
-          passport[key] = value;
-          return passport;
-        },
-        {
-          byr: "",
-          iyr: "",
-          eyr: "",
-          hgt: "",
-          hcl: "",
-          ecl: "",
-          pid: "",
-          cid: "",
-        }
-      );
+      .reduce<Passport>((passport, keyAndValue) => {
+        const [key, value] = keyAndValue.split(":");
+        passport[key] = value;
+        return passport;
+      }, {});
   })
   .filter((passport) => {
     return requiredFields.reduce<Boolean>((valid, field) => {

@@ -10,7 +10,8 @@
   },
   "scripts": {
     "watch": "tsc --watch",
-    "start": "rm ./dist/* && tsc && node dist/index"
+    "start": "rm ./dist/* && tsc && node dist/index",
+    "test": "node dist/index"
   },
   "author": "",
   "license": "ISC"

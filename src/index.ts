@@ -12,6 +12,12 @@ function ls(dir: string = "."): Promise<Array<string>> {
 }
 
 (async () => {
+  if (process.argv[2]) {
+    let file = process.argv[2];
+    await import(`../dist/${file}.js`);
+    process.exit(0);
+  }
+
   (await ls("./dist"))
     .filter(
       (file) =>
@@ -20,7 +26,6 @@ function ls(dir: string = "."): Promise<Array<string>> {
         file.charAt(0) !== "."
     )
     .forEach(async (file) => {
-      console.log(file);
       await import(`../dist/${file}`);
     });
 })();
