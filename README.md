@@ -13,3 +13,9 @@ Just wanted to put this up on Github in case I run `rm -rf *` in `/home/markus` 
 ### Start compilation watch
 
 `yarn watch`
+
+### Test a single solution
+
+Here, we are testing 4-2:
+
+`yarn test 4-2`
